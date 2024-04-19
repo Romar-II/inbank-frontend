@@ -1,3 +1,5 @@
+
+
 Biggest fix:
 TASK 101 specifies that we need to display the highest amount according to chosen loan period.
 In this case loan_form file compares for user chosen loan amount to the biggest available loan given by backend and displays the smaller amount.
@@ -33,10 +35,3 @@ _loanPeriod = ((newValue.floor()).round());
     throw new InvalidLoanPeriodException("Invalid loan period!");
     }
 
-TASK 102
-
--DecisionEngine checks for age in isInvalidAge method.
-    Age of loan applicant is calculated and then checked in 2 parts
-    isUnderAge method checks for people under age of majority
-    isOverDesiredAge adds loan period in years to current age and   
-    compares it to DecisiopnEngineConstant of life expectancy
