@@ -37,4 +37,6 @@ TASK 102
 
 -DecisionEngine checks for age in isInvalidAge method.
     Age of loan applicant is calculated and then checked in 2 parts
-    isUnderAge method checks for people under age of 18
+    isUnderAge method checks for people under age of majority
+    isOverDesiredAge adds loan period in years to current age and   
+    compares it to DecisiopnEngineConstant of life expectancy
