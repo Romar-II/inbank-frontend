@@ -27,13 +27,16 @@ class _LoanFormState extends State<LoanForm> {
   int _loanAmountResult = 0;
   int _loanPeriodResult = 0;
   String _errorMessage = '';
+  String? _loanCountry;
+  var _items= ['Estonia', 'Latvia', 'Lithuania'];
+
 
   // Submit the form and update the state with the loan decision results.
   // Only submits if the form inputs are validated.
   void _submitForm() async {
     if (_formKey.currentState!.validate()) {
       final result = await _apiService.requestLoanDecision(
-          _nationalId, _loanAmount, _loanPeriod);
+          _nationalId, _loanAmount, _loanPeriod, _loanCountry!);
       setState(() {
         _loanAmountResult= int.parse(result['loanAmount'].toString());
         _loanPeriodResult = int.parse(result['loanPeriod'].toString());
@@ -68,6 +71,25 @@ class _LoanFormState extends State<LoanForm> {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          DropdownButton<String>(
+                            items: _items.map((String item) {
+                              return DropdownMenuItem(
+                                value: item,
+                                child: Text(item),
+                              );
+                            }).toList(),
+                            onChanged: (String? newValue) {
+                              setState(() {
+                                _loanCountry=newValue!;
+                                _submitForm();
+                              });
+                            },
+                            value: _loanCountry,
+                            hint: Text('Choose Country',
+                            style: TextStyle(color: AppColors.textColor),),
+                            style: TextStyle(color: AppColors.textColor),
+                            dropdownColor: AppColors.primaryColor,
+                          ),
                           NationalIdTextFormField(
                             onChanged: (value) {
                               setState(() {
