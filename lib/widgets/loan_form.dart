@@ -27,7 +27,7 @@ class _LoanFormState extends State<LoanForm> {
   int _loanAmountResult = 0;
   int _loanPeriodResult = 0;
   String _errorMessage = '';
-  String? _loanCountry;
+  String _loanCountry='Estonia';
   var _items= ['Estonia', 'Latvia', 'Lithuania'];
 
 
