@@ -35,11 +35,6 @@ _loanPeriod = ((newValue.floor()).round());
 
 TASK 102
 
-
-
-
-
-
-
-Good: TRIES Frontend double checks backend response to be valid and accounts for backend response to be in some other form than in and makes it into int
-in file loan form.dart
+-DecisionEngine checks for age in isInvalidAge method.
+    Age of loan applicant is calculated and then checked in 2 parts
+    isUnderAge method checks for people under age of 18
