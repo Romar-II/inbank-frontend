@@ -13,6 +13,11 @@ Smaller proposed fixes:
 -When landing on page loan amount and period is set to 2500 and 36 months, these seem to be chosen for aesthetics,
     which works for me, I would try to separate initial display variables from variables that we are actively checking information to improve readability
 
+-LoanPeriod slider jumps by 6 months, if its standard to round up loans to periods divisible by 6 months then it makes sense,
+    if loans could be issued for any amount of months then slider can be changed, in slider.adaptive for loan period  
+    to display any amount of months between 12 and 60 months with:
+_loanPeriod = ((newValue.floor()).round());
+
 -Backend readability issues
     Would suggest to rewrite loan amount check and loan period check, in verifyInputs method, to avoid negations
     and put them in a separate method with proper names to improve code readability.
